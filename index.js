@@ -17,6 +17,20 @@ const getProducts = async () => {
 const displayProducts = (prods) => {
   const container = document.getElementById("container");
   container.innerHTML = "";
+  // Remove existing Total Products count if it exists
+  const totalProductsHeader = document.getElementById("total");
+  if (totalProductsHeader) {
+    totalProductsHeader.innerHTML = ""; // Remove the existing count
+  }
+
+  // Create h2 for product list
+  const number = document.createElement("h2");
+  number.innerHTML = `Total Products (${prods.length})`;
+  number.className = "ms-4";
+
+  // Append h2 if it doesn't exist already
+  document.getElementById("total").appendChild(number);
+
   prods.forEach((prod) => {
     //create mainDiv
     const mainDiv = document.createElement("div");
@@ -37,7 +51,7 @@ const displayProducts = (prods) => {
 
     //create title of card
     const title = document.createElement("h5");
-    title.className = "card-title";
+    title.className = "card-title ms-1";
     title.innerHTML = prod.title;
 
     //create price
@@ -48,14 +62,15 @@ const displayProducts = (prods) => {
     price.style.fontSize = "22px";
     price.style.fontWeight = "bold";
     price.style.marginRight = "9px";
+    price.style.color = "red";
 
     //create product desc
 
     const desc = document.createElement("p");
-    desc.className = "card-text";
+    desc.className = "card-text ms-1";
     desc.innerHTML =
-      prod.description.length > 40
-        ? prod.description.slice(0, 40) + ["..."]
+      prod.description.length > 35
+        ? prod.description.slice(0, 35) + ["..."]
         : prod.description;
 
     //create button
