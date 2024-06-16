@@ -7,7 +7,7 @@ const getProducts = async () => {
     products = data.products;
     updatedProducts = [...products];
     displayProducts(products);
-    console.log(products);
+    // console.log(products);
     return products;
   } catch (error) {
     console.log(error);
@@ -51,7 +51,7 @@ const displayProducts = (prods) => {
 
     //create title of card
     const title = document.createElement("h5");
-    title.className = "card-title ms-1";
+    title.className = "card-title ms-1 mt-1";
     title.innerHTML = prod.title;
 
     //create price
@@ -139,7 +139,7 @@ const displayProducts = (prods) => {
       <li><Strong>Return Policy: </Strong>${prod.returnPolicy}</li>
       <li><Strong>Warrenty: </Strong>${prod.warrantyInformation}</li>
       </ul>
-       <Strong style="font-size:25px;"><Strong>$ </Strong>${prod.price}</Strong>
+       <Strong style="font-size:25px; color:red;"><Strong>$ </Strong>${prod.price}</Strong>
        </div>
       </div>
       <div>
@@ -190,12 +190,12 @@ const displayProducts = (prods) => {
       e.preventDefault();
       // console.log(prod);
       let filterProd = prods.filter((p) => {
-        console.log(p);
+        // console.log(p);
         return p.id !== prod.id;
       });
       displayProducts(filterProd);
 
-      console.log(filterProd);
+      //   console.log(filterProd);
     });
 
     // Debounce function
