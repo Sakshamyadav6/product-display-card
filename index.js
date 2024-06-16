@@ -61,7 +61,7 @@ const displayProducts = (prods) => {
     //create button
     const button = document.createElement("button");
     button.className = "btn btn-warning";
-    button.innerHTML = "More Details";
+    button.innerHTML = "View Details";
     button.style.margin = "5px";
     button.setAttribute("data-bs-toggle", "modal");
     const modalId = `modal${prod.id}`;
